@@ -29,6 +29,7 @@ function _interopNamespace(e) {
 
 var THREE__namespace = /*#__PURE__*/_interopNamespace(THREE);
 
+// src/GalleryCarousel.tsx
 function UniversalModel({ modelUrl, rotation, position = [0, -0.8, 0], scale = 1.5 }) {
   const meshRef = react.useRef();
   const [error, setError] = react.useState(null);

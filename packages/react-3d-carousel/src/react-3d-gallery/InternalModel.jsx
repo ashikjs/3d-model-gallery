@@ -1,8 +1,5 @@
-'use client';
-
 import { useGLTF } from '@react-three/drei';
 import { useRef, useState, useEffect } from 'react';
-import { Html } from '@react-three/drei';
 
 export default function InternalModel({ modelUrl, rotation }) {
     const meshRef = useRef();

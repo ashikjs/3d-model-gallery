@@ -1,5 +1,3 @@
-'use client';
-
 import { useRef, useState, useEffect, useMemo } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';

@@ -10,7 +10,7 @@
         "README.md"
     ],
     "scripts": {
-        "build": "tsup",
+        "build": "tsup && node scripts/add-use-client.mjs",
         "dev": "tsup --watch",
         "lint": "eslint src",
         "prepublishOnly": "npm run build"

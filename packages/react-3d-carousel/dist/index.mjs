@@ -7,6 +7,7 @@ import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import * as THREE from 'three';
 import { jsx, jsxs, Fragment } from 'react/jsx-runtime';
 
+// src/GalleryCarousel.tsx
 function UniversalModel({ modelUrl, rotation, position = [0, -0.8, 0], scale = 1.5 }) {
   const meshRef = useRef();
   const [error, setError] = useState(null);

@@ -1,5 +1,3 @@
-'use client';
-
 import { useState, useEffect } from 'react';
 import { ProductViewer } from './react-3d-gallery';
 import { ModelData } from './types/model';
@@ -157,8 +155,8 @@ export default function GalleryCarousel({
                                 key={index}
                                 onClick={() => setCurrentIndex(index)}
                                 className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex
-                                        ? 'bg-white w-8'
-                                        : 'bg-white/40 hover:bg-white/60'
+                                    ? 'bg-white w-8'
+                                    : 'bg-white/40 hover:bg-white/60'
                                     }`}
                                 aria-label={`Go to model ${index + 1}`}
                             />
