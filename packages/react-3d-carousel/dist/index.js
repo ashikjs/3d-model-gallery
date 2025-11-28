@@ -1,4 +1,3 @@
-"use client";
 'use strict';
 
 var react = require('react');
