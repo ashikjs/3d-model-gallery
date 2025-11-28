@@ -38,7 +38,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/ashikjs/3d-model-gallery.git"
     },
     "peerDependencies": {
         "react": ">=18",
