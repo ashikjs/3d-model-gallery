@@ -1,3 +1,5 @@
+'use client'
+
 import { GalleryCarousel, ModelData } from 'react-3d-carousel';
 
 async function getAllModels(): Promise<ModelData[]> {
