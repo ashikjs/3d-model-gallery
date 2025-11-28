@@ -1,5 +1,4 @@
-import GalleryCarousel from './GalleryCarousel';
-import { ModelData } from '@/types/model';
+import { GalleryCarousel, ModelData } from 'react-3d-carousel';
 
 async function getAllModels(): Promise<ModelData[]> {
   try {
@@ -7,11 +6,11 @@ async function getAllModels(): Promise<ModelData[]> {
     const res = await fetch(`${baseUrl}/api/models`, {
       cache: 'no-store'
     });
-    
+
     if (!res.ok) {
       throw new Error('Failed to fetch model data');
     }
-    
+
     const models: ModelData[] = await res.json();
     return models;
   } catch (error) {
@@ -33,8 +32,8 @@ export default async function ProductSection() {
   const models = await getAllModels();
 
   return (
-    <GalleryCarousel 
-      models={models} 
+    <GalleryCarousel
+      models={models}
       showNavigation={true}
       showArrows={true}
       showDots={true}
