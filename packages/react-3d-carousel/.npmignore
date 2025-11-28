@@ -1,0 +1,9 @@
+# Exclude source and config files
+src/
+tsup.config.ts
+tsup.config.ts.bak
+tsconfig.json
+node_modules/
+
+# Include only built files
+!dist/

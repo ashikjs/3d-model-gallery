@@ -1,25 +1,45 @@
 {
-    "name": "react-3d-carousel",
+    "name": "3d-model-gallery",
     "version": "0.1.0",
-    "description": "A 3D carousel component for React",
+    "description": "Interactive 3D model gallery with Three.js - Display and navigate 3D models with smooth carousel navigation. Works with React, Next.js, and other frameworks.",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
     "types": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "README.md"
+    ],
     "scripts": {
         "build": "tsup",
         "dev": "tsup --watch",
-        "lint": "eslint src"
+        "lint": "eslint src",
+        "prepublishOnly": "npm run build"
     },
     "keywords": [
-        "react",
         "3d",
+        "3d-model",
+        "model",
+        "gallery",
         "carousel",
+        "three",
         "threejs",
-        "fiber",
-        "drei"
+        "model-viewer",
+        "react",
+        "nextjs",
+        "vue",
+        "angular",
+        "react-three-fiber",
+        "drei",
+        "webgl",
+        "gltf",
+        "glb"
     ],
     "author": "",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
     "peerDependencies": {
         "react": ">=18",
         "react-dom": ">=18",
