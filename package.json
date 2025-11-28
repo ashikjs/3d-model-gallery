@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build-package": "cd packages/react-3d-carousel && npm install && npm run build",
+    "build-package": "cd packages/react-3d-carousel && npm install --legacy-peer-deps && npm run build",
     "build": "npm run build-package && next build",
     "start": "next start",
     "lint": "eslint"
