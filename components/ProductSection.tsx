@@ -37,6 +37,8 @@ export default async function ProductSection() {
       showNavigation={true}
       showArrows={true}
       showDots={true}
+      height="80vh"
+      scrollMultiplier={4}
     />
   );
 }

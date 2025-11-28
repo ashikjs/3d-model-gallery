@@ -193,7 +193,9 @@ function GalleryCarousel({
   showArrows = false,
   showDots = false,
   isLoading = false,
-  error = null
+  error = null,
+  height = "80vh",
+  scrollMultiplier = 4
 }) {
   const [currentIndex, setCurrentIndex] = react.useState(0);
   if (isLoading) {
@@ -243,44 +245,47 @@ function GalleryCarousel({
       models.length
     ] }) })
   ] });
-  return /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "relative", children: [
-    /* @__PURE__ */ jsxRuntime.jsx(
+  return /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntime.jsx("div", { className: "relative", children: /* @__PURE__ */ jsxRuntime.jsx(
       ProductViewer,
       {
         modelUrl: currentModel.modelUrl,
-        height: currentModel.height,
-        overlay
+        height: height || currentModel.height,
+        overlay,
+        scrollMultiplier
       }
-    ),
-    showNavigation && showArrows && models.length > 1 && /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
-      /* @__PURE__ */ jsxRuntime.jsx("div", { className: "fixed left-8 top-1/2 -translate-y-1/2 z-30", children: /* @__PURE__ */ jsxRuntime.jsx(
+    ) }),
+    /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "fixed inset-0 pointer-events-none", style: { height: height || "80vh" }, children: [
+      showNavigation && showArrows && models.length > 1 && /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
+        /* @__PURE__ */ jsxRuntime.jsx("div", { className: "absolute left-8 top-1/2 -translate-y-1/2 z-30 pointer-events-auto", children: /* @__PURE__ */ jsxRuntime.jsx(
+          "button",
+          {
+            onClick: goToPrevious,
+            className: "bg-white/20 hover:bg-white/30 backdrop-blur-md text-white p-4 rounded-full transition-all duration-300 shadow-lg border border-white/30",
+            "aria-label": "Previous model",
+            children: /* @__PURE__ */ jsxRuntime.jsx("svg", { className: "w-8 h-8", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxRuntime.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2.5, d: "M15 19l-7-7 7-7" }) })
+          }
+        ) }),
+        /* @__PURE__ */ jsxRuntime.jsx("div", { className: "absolute right-8 top-1/2 -translate-y-1/2 z-30 pointer-events-auto", children: /* @__PURE__ */ jsxRuntime.jsx(
+          "button",
+          {
+            onClick: goToNext,
+            className: "bg-white/20 hover:bg-white/30 backdrop-blur-md text-white p-4 rounded-full transition-all duration-300 shadow-lg border border-white/30",
+            "aria-label": "Next model",
+            children: /* @__PURE__ */ jsxRuntime.jsx("svg", { className: "w-8 h-8", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxRuntime.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2.5, d: "M9 5l7 7-7 7" }) })
+          }
+        ) })
+      ] }),
+      showNavigation && showDots && models.length > 1 && /* @__PURE__ */ jsxRuntime.jsx("div", { className: "absolute bottom-8 left-0 right-0 z-30 flex justify-center gap-2 pointer-events-auto", children: models.map((_, index) => /* @__PURE__ */ jsxRuntime.jsx(
         "button",
         {
-          onClick: goToPrevious,
-          className: "bg-white/20 hover:bg-white/30 backdrop-blur-md text-white p-4 rounded-full transition-all duration-300 shadow-lg border border-white/30",
-          "aria-label": "Previous model",
-          children: /* @__PURE__ */ jsxRuntime.jsx("svg", { className: "w-8 h-8", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxRuntime.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2.5, d: "M15 19l-7-7 7-7" }) })
-        }
-      ) }),
-      /* @__PURE__ */ jsxRuntime.jsx("div", { className: "fixed right-8 top-1/2 -translate-y-1/2 z-30", children: /* @__PURE__ */ jsxRuntime.jsx(
-        "button",
-        {
-          onClick: goToNext,
-          className: "bg-white/20 hover:bg-white/30 backdrop-blur-md text-white p-4 rounded-full transition-all duration-300 shadow-lg border border-white/30",
-          "aria-label": "Next model",
-          children: /* @__PURE__ */ jsxRuntime.jsx("svg", { className: "w-8 h-8", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxRuntime.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2.5, d: "M9 5l7 7-7 7" }) })
-        }
-      ) })
-    ] }),
-    showNavigation && showDots && models.length > 1 && /* @__PURE__ */ jsxRuntime.jsx("div", { className: "fixed bottom-8 left-0 right-0 z-30 flex justify-center gap-2", children: models.map((_, index) => /* @__PURE__ */ jsxRuntime.jsx(
-      "button",
-      {
-        onClick: () => setCurrentIndex(index),
-        className: `w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex ? "bg-white w-8" : "bg-white/40 hover:bg-white/60"}`,
-        "aria-label": `Go to model ${index + 1}`
-      },
-      index
-    )) })
+          onClick: () => setCurrentIndex(index),
+          className: `w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex ? "bg-white w-8" : "bg-white/40 hover:bg-white/60"}`,
+          "aria-label": `Go to model ${index + 1}`
+        },
+        index
+      )) })
+    ] })
   ] });
 }
 

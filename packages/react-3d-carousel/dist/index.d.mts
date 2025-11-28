@@ -18,7 +18,9 @@ interface GalleryCarouselProps {
     showDots?: boolean;
     isLoading?: boolean;
     error?: string | null;
+    height?: string;
+    scrollMultiplier?: number;
 }
-declare function GalleryCarousel({ models, showNavigation, showArrows, showDots, isLoading, error }: GalleryCarouselProps): react_jsx_runtime.JSX.Element;
+declare function GalleryCarousel({ models, showNavigation, showArrows, showDots, isLoading, error, height, scrollMultiplier }: GalleryCarouselProps): react_jsx_runtime.JSX.Element;
 
 export { GalleryCarousel, type ModelData };

@@ -11,6 +11,8 @@ interface GalleryCarouselProps {
     showDots?: boolean;
     isLoading?: boolean;
     error?: string | null;
+    height?: string;
+    scrollMultiplier?: number;
 }
 
 export default function GalleryCarousel({
@@ -19,7 +21,9 @@ export default function GalleryCarousel({
     showArrows = false,
     showDots = false,
     isLoading = false,
-    error = null
+    error = null,
+    height = '80vh',
+    scrollMultiplier = 4
 }: GalleryCarouselProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -104,58 +108,64 @@ export default function GalleryCarousel({
     );
 
     return (
-        <div className="relative">
-            <ProductViewer
-                modelUrl={currentModel.modelUrl}
-                height={currentModel.height}
-                overlay={overlay as any}
-            />
+        <>
+            <div className="relative">
+                <ProductViewer
+                    modelUrl={currentModel.modelUrl}
+                    height={height || currentModel.height}
+                    overlay={overlay as any}
+                    scrollMultiplier={scrollMultiplier}
+                />
+            </div>
 
-            {/* Navigation Buttons */}
-            {showNavigation && showArrows && models.length > 1 && (
-                <>
-                    <div className="fixed left-8 top-1/2 -translate-y-1/2 z-30">
-                        <button
-                            onClick={goToPrevious}
-                            className="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white p-4 rounded-full transition-all duration-300 shadow-lg border border-white/30"
-                            aria-label="Previous model"
-                        >
-                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
-                            </svg>
-                        </button>
+            {/* Navigation Container - Fixed within viewport */}
+            <div className="fixed inset-0 pointer-events-none" style={{ height: height || '80vh' }}>
+                {/* Navigation Buttons */}
+                {showNavigation && showArrows && models.length > 1 && (
+                    <>
+                        <div className="absolute left-8 top-1/2 -translate-y-1/2 z-30 pointer-events-auto">
+                            <button
+                                onClick={goToPrevious}
+                                className="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white p-4 rounded-full transition-all duration-300 shadow-lg border border-white/30"
+                                aria-label="Previous model"
+                            >
+                                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div className="absolute right-8 top-1/2 -translate-y-1/2 z-30 pointer-events-auto">
+                            <button
+                                onClick={goToNext}
+                                className="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white p-4 rounded-full transition-all duration-300 shadow-lg border border-white/30"
+                                aria-label="Next model"
+                            >
+                                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </>
+                )}
+
+                {/* Dots Indicator */}
+                {showNavigation && showDots && models.length > 1 && (
+                    <div className="absolute bottom-8 left-0 right-0 z-30 flex justify-center gap-2 pointer-events-auto">
+                        {models.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentIndex(index)}
+                                className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex
+                                        ? 'bg-white w-8'
+                                        : 'bg-white/40 hover:bg-white/60'
+                                    }`}
+                                aria-label={`Go to model ${index + 1}`}
+                            />
+                        ))}
                     </div>
-
-                    <div className="fixed right-8 top-1/2 -translate-y-1/2 z-30">
-                        <button
-                            onClick={goToNext}
-                            className="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white p-4 rounded-full transition-all duration-300 shadow-lg border border-white/30"
-                            aria-label="Next model"
-                        >
-                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                            </svg>
-                        </button>
-                    </div>
-                </>
-            )}
-
-            {/* Dots Indicator */}
-            {showNavigation && showDots && models.length > 1 && (
-                <div className="fixed bottom-8 left-0 right-0 z-30 flex justify-center gap-2">
-                    {models.map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => setCurrentIndex(index)}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex
-                                    ? 'bg-white w-8'
-                                    : 'bg-white/40 hover:bg-white/60'
-                                }`}
-                            aria-label={`Go to model ${index + 1}`}
-                        />
-                    ))}
-                </div>
-            )}
-        </div>
+                )}
+            </div>
+        </>
     );
 }
