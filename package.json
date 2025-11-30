@@ -7,7 +7,8 @@
     "build-package": "cd packages/react-3d-carousel && npm install --legacy-peer-deps --production=false && npm run build",
     "build": "npm run build-package && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "publish:package": "cd packages/react-3d-carousel && npm publish"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
