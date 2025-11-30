@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.4.0",
+    "lucide-react": "^0.555.0",
     "next": "16.0.5",
     "react": "19.2.0",
     "react-3d-carousel": "file:packages/react-3d-carousel",
