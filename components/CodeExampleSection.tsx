@@ -7,9 +7,9 @@ import { Check, Copy } from 'lucide-react';
 const singleModel: ModelData[] = [
     {
         id: 1,
-        name: 'Ready Player Me Avatar',
-        description: 'A 3D avatar model',
-        instruction: 'Interact with the model',
+        name: 'Girl Character Model',
+        description: 'Ready Player Me female avatar',
+        instruction: 'Scroll to rotate',
         modelUrl: 'https://models.readyplayer.me/64bfa15f0e72c63d7c3934a6.glb',
         format: 'glb',
         height: '400px'
@@ -19,29 +19,29 @@ const singleModel: ModelData[] = [
 const multipleModels: ModelData[] = [
     {
         id: 1,
-        name: 'Avatar 1',
-        description: 'First avatar model',
-        instruction: 'Swipe to see more',
+        name: 'Girl Character Model',
+        description: 'Ready Player Me female avatar',
+        instruction: 'Use arrow keys or buttons to navigate',
         modelUrl: 'https://models.readyplayer.me/64bfa15f0e72c63d7c3934a6.glb',
         format: 'glb',
         height: '400px'
     },
     {
         id: 2,
-        name: 'Avatar 2',
-        description: 'Second avatar model',
-        instruction: 'Swipe to see more',
-        modelUrl: 'https://models.readyplayer.me/64bfa15f0e72c63d7c3934a6.glb',
+        name: 'Boy Character Model',
+        description: 'Ready Player Me male avatar',
+        instruction: 'Use arrow keys or buttons to navigate',
+        modelUrl: 'https://models.readyplayer.me/6185a4acfb622cf1cdc49348.glb',
         format: 'glb',
         height: '400px'
     },
     {
         id: 3,
-        name: 'Avatar 3',
-        description: 'Third avatar model',
-        instruction: 'Swipe to see more',
-        modelUrl: 'https://models.readyplayer.me/64bfa15f0e72c63d7c3934a6.glb',
-        format: 'glb',
+        name: 'iPhone 16 Pro',
+        description: 'Latest iPhone 16 Pro in OBJ format',
+        instruction: 'Use arrow keys or buttons to navigate',
+        modelUrl: '/3d-models/iphone-16-pro.obj',
+        format: 'obj',
         height: '400px'
     }
 ];
@@ -51,7 +51,9 @@ const singleProductCode = `import { GalleryCarousel } from 'react-3d-carousel';
 const models = [
   {
     id: 1,
-    name: 'Ready Player Me Avatar',
+    name: 'Girl Character Model',
+    description: 'Ready Player Me female avatar',
+    instruction: 'Scroll to rotate',
     modelUrl: 'https://models.readyplayer.me/64bfa15f0e72c63d7c3934a6.glb',
     format: 'glb',
     height: '400px'
@@ -73,21 +75,19 @@ const multipleProductCode = `import { GalleryCarousel } from 'react-3d-carousel'
 const models = [
   {
     id: 1,
-    name: 'Avatar 1',
-    modelUrl: 'https://models.readyplayer.me/64bfa15f0e72c63d7c3934a6.glb',
-    format: 'glb'
-  },
-  {
-    id: 2,
-    name: 'Avatar 2',
+    name: 'Girl Character Model',
+    description: 'Ready Player Me female avatar',
+    instruction: 'Use arrow keys or buttons to navigate',
     modelUrl: 'https://models.readyplayer.me/64bfa15f0e72c63d7c3934a6.glb',
     format: 'glb'
   },
   {
     id: 3,
-    name: 'Avatar 3',
-    modelUrl: 'https://models.readyplayer.me/64bfa15f0e72c63d7c3934a6.glb',
-    format: 'glb'
+    name: 'iPhone 16 Pro',
+    description: 'Latest iPhone 16 Pro in OBJ format',
+    instruction: 'Use arrow keys or buttons to navigate',
+    modelUrl: '/3d-models/iphone-16-pro.obj',
+    format: 'obj'
   }
 ];
 
@@ -123,20 +123,20 @@ export default function CodeExampleSection() {
                     <button
                         onClick={() => setActiveTab('single')}
                         className={`px-6 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === 'single'
-                                ? 'bg-blue-600 text-white'
-                                : 'text-slate-400 hover:text-white'
+                            ? 'bg-blue-600 text-white'
+                            : 'text-slate-400 hover:text-white'
                             }`}
                     >
-                        Single Product
+                        Single Model
                     </button>
                     <button
                         onClick={() => setActiveTab('multiple')}
                         className={`px-6 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === 'multiple'
-                                ? 'bg-blue-600 text-white'
-                                : 'text-slate-400 hover:text-white'
+                            ? 'bg-blue-600 text-white'
+                            : 'text-slate-400 hover:text-white'
                             }`}
                     >
-                        Multiple Products
+                        Multiple Models Gallery
                     </button>
                 </div>
             </div>

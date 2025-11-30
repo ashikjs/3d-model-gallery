@@ -37,7 +37,7 @@ const models: ModelData[] = [
     name: 'My 3D Model',
     description: 'An awesome 3D model',
     instruction: 'Scroll to rotate',
-    modelUrl: '/models/model.glb',
+    modelUrl: 'https://models.readyplayer.me/64bfa15f0e72c63d7c3934a6.glb',
     height: '80vh'
   }
 ];
