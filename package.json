@@ -8,6 +8,9 @@
     "build": "npm run build-package && next build",
     "start": "next start",
     "lint": "eslint",
+    "version:patch": "cd packages/react-3d-carousel && npm version patch",
+    "version:minor": "cd packages/react-3d-carousel && npm version minor",
+    "version:major": "cd packages/react-3d-carousel && npm version major",
     "publish:package": "cd packages/react-3d-carousel && npm publish"
   },
   "dependencies": {

@@ -5,12 +5,12 @@ import { GalleryCarousel, ModelData } from 'react-3d-carousel';
 const models: ModelData[] = [
   {
     id: 1,
-    name: 'Paper Mario Phone',
-    description: 'Stylized mobile phone from Paper Mario',
-    instruction: 'Use arrow keys or buttons to navigate',
-    modelUrl: '/3d-models/paper_mario_sticker_star_mobile_phone.glb',
+    name: 'My 3D Model',
+    description: 'An awesome 3D model',
+    instruction: 'Scroll to rotate',
+    modelUrl: 'https://models.readyplayer.me/64bfa15f0e72c63d7c3934a6.glb',
     format: 'glb',
-    height: '100vh'
+    height: '80vh'
   },
   {
     id: 2,
